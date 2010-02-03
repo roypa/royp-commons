@@ -1,0 +1,26 @@
+application: royp-commons
+version: 1
+runtime: python
+api_version: 1
+
+# Defines which handler scripts should be used for which URLs
+handlers:
+# Access to the root URL should map to the static index.html file
+- url: /
+  static_files: webfiles/jquery.pwi-1.2/index.html
+  upload: webfiles/jquery.pwi-1.2/index.html
+
+- url: /(.*)
+  static_files: webfiles/\1
+  upload: webfiles/(.*)
+      
+# Example 1
+#- url: /(.*\.(html|css|js|gif|png|jpg|doc))
+#  static_files: webfiles/\1
+#  upload: webfiles/(.*\.(html|css|js|gif|png|jpg|doc))
+
+# Example 2: All URLs to the root, maps to files in the webfiles directory
+#- url: /.*
+#  static_dir: webfiles
+
+  
